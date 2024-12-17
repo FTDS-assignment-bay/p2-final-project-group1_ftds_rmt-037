@@ -66,7 +66,7 @@ st.markdown("""
 st.markdown("<div class='main-header'>Tokopedia Shoe Sentiment Analysis</div>", unsafe_allow_html=True)
 
 # ---- User Input ----
-user_input = st.text_input("Enter Tokopedia shoe product link for sentiment analysis")
+user_input = st.text_input("Enter Tokopedia Men Shoe product link for sentiment analysis")
 
 # Stopwords and Stemmer
 stpwds_id = list(set(stopwords.words('indonesian')))
@@ -103,14 +103,15 @@ if st.button('Submit'):
         col1, col2 = st.columns(2)
         col1.markdown(f"""
         <div class='sentiment-card'>
-            <h3 class='sentiment-positive'>Positives</h3>
+            <h3 class='sentiment-positive'>Positive</h3>
+            <p style="color: black; font-size: 20px; font-weight: bold;">{pos_count}</p>
             <p>{pos_count}</p>
         </div>
         """, unsafe_allow_html=True)
         col2.markdown(f"""
         <div class='sentiment-card'>
             <h3 class='sentiment-negative'>Negatives</h3>
-            <p>{neg_count}</p>
+            <p style="color: #8B0000; font-size: 20px; font-weight: bold;">{neg_count}</p>
         </div>
         """, unsafe_allow_html=True)
 
