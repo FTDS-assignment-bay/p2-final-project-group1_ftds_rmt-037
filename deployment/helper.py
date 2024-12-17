@@ -1,45 +1,41 @@
-# Importing Libraries
 import re
 import os
 import ast
-import nltk
 import json
+import warnings
+from time import sleep
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import phik
-import warnings
 import joblib
 import tensorflow as tf
 import tensorflow_hub as tf_hub
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from time import sleep
-from bs4 import BeautifulSoup
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from wordcloud import STOPWORDS, WordCloud
-from tensorflow.keras.models import load_model
-from tensorflow.keras.utils import plot_model
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.layers import Embedding, TextVectorization, Reshape, Input, LSTM, Dropout, Dense, Bidirectional
-from tensorflow.keras.models import Model, Sequential
-from keras.callbacks import EarlyStopping
-# Download necessary NLTK data
-nltk.download('averaged_perceptron_tagger')
-nltk.download('stopwords')
-nltk.download('punkt')
-# Pre-processing & Feature Engineering
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer, PorterStemmer
+from nltk.corpus import stopwords
+
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.impute import SimpleImputer
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
+from sklearn.metrics import classification_report, confusion_matrix
 
+from tensorflow.keras.models import load_model, Model, Sequential
+from tensorflow.keras.utils import plot_model
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.layers import Embedding, TextVectorization, Reshape, Input, LSTM, Dropout, Dense, Bidirectional
+from keras.callbacks import EarlyStopping
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from bs4 import BeautifulSoup
 
 # Define Stopwords
 stpwds_id = list(set(stopwords.words('indonesian')))
