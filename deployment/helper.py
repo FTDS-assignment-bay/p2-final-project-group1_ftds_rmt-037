@@ -1,164 +1,161 @@
+# Importing Libraries
 import re
-from dotenv import load_dotenv
 import os
-from googleapiclient.discovery import build
+import ast
 import nltk
-from nltk.tokenize import word_tokenize
 import json
 import pandas as pd
-from nltk.stem import WordNetLemmatizer
-from nltk.corpus import stopwords
-
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import phik
+import warnings
+import joblib
+import tensorflow as tf
+import tensorflow_hub as tf_hub
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from time import sleep
+from bs4 import BeautifulSoup
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from wordcloud import STOPWORDS, WordCloud
+from tensorflow.keras.models import load_model
+from tensorflow.keras.utils import plot_model
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.layers import Embedding, TextVectorization, Reshape, Input, LSTM, Dropout, Dense, Bidirectional
+from tensorflow.keras.models import Model, Sequential
+from keras.callbacks import EarlyStopping
+# Download necessary NLTK data
 nltk.download('averaged_perceptron_tagger')
-
 nltk.download('stopwords')
 nltk.download('punkt')
-
-load_dotenv()
-
-api_key = os.getenv('API_KEY')
-youtube = build('youtube', 'v3', developerKey=api_key)
-
-def get_all_comments(video_id):
-    comments = []
-    next_page_token = None
-
-    while True:
-        # Make API call to get comments
-        request = youtube.commentThreads().list(
-            part='snippet',
-            videoId=video_id,
-            textFormat='plainText',
-            pageToken=next_page_token  # Use pagination token for next set of comments
-        )
-        
-        # Execute the request
-        response = request.execute()
-
-        # Loop through the comments in the response
-        for item in response['items']:
-            comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
-            author = item['snippet']['topLevelComment']['snippet']['authorDisplayName']
-            timestamp = item['snippet']['topLevelComment']['snippet']['publishedAt']
-            like_count = item['snippet']['topLevelComment']['snippet']['likeCount']
-            comments.append({
-                'author': author.strip(),
-                'comment': comment.strip(),
-                'timestamp': timestamp.strip(),
-                'like_count': like_count,
-            })
-        
-        # Check if there's another page of comments (pagination)
-        next_page_token = response.get('nextPageToken')
-
-        if not next_page_token or len(comments) >= 100:  # If no more pages, break the loop
-          break
-
-    return comments
-
-def extract_youtube_id(url_or_id):
-    pattern = r'(?:v=|\/)([a-zA-Z0-9_-]{11})(?:&|$)?'
-    
-    if re.fullmatch(r'[a-zA-Z0-9_-]{11}', url_or_id):
-        return url_or_id
-    
-    match = re.search(pattern, url_or_id)
-    if match:
-        return match.group(1)
-    return None  
-
-informal_phrases = {
-    "sat set sat set": "cepat", "ya mas": ""
-}
-
-def load_slang_txt(file_path):
-    slang_dict_txt = {}
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            file_content = file.read()
-            slang_dict_txt = json.loads(file_content)
-    except json.JSONDecodeError:
-        print(f"Error decoding JSON in the file: {file_path}")
-    return slang_dict_txt
+# Pre-processing & Feature Engineering
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.impute import SimpleImputer
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
 
 
-def load_slang_csv(file_path):
-    slang_df = pd.read_csv(file_path, encoding='ISO-8859-1')
-    return dict(zip(slang_df.iloc[:, 0], slang_df.iloc[:, 1]))
 
-
-# Combine slang dictionaries
-slang_txt_path = 'combined_slang_words.txt'
-slang_dict_txt = load_slang_txt(slang_txt_path)
-
-slang_csv_path = 'new_kamusalay.csv'
-slang_dict_csv = load_slang_csv(slang_csv_path)
-
-slang_dict_tambahan = {
-    "gw": "saya", "mau": "ingin", "ni": "ini", "aja": "saja", "gak": "tidak", "bgt": "sangat",
-    "klo": "kalau", "bgs": "bagus", "masi": "masih", "msh": "masih", "lom": "belum",
-    "blm": "belum", "ap": "apa", "brg": "barang", "ad": "ada", "blom": "belum",
-    "kebli": "kebeli", "tp": "tapi", "org": "orang", "tdk": "tidak", "yg": "yang",
-    "kalo": "kalau", "sy": "saya", "bng": "abang", "bg": "abang", "fto": "foto",
-    "spek": "spesifikasi", "cm": "cuma", "jg": "juga", "pd": "pada", "skrg": "sekarang",
-    "ga": "tidak", "gk": "tidak", "batre": "baterai", "gue": "saya", "dpt": "dapat",
-    "kek": "seperti", "mna": "mana", "mnding": "mending", "mend": "mending",
-    "dr": "dari", "sma": "sama", "drpada": "daripada"
-}
-
-slang_dict = {**slang_dict_tambahan, **slang_dict_txt, **slang_dict_csv}
-
-# Stopwords (Adjusted)
+# Define Stopwords
 stpwds_id = list(set(stopwords.words('indonesian')))
-retain_words = ['baru', 'lama', 'sama', 'tapi', 'tidak', 'dari', 'belum', 'bagi', 'mau', 'masalah']
-for word in retain_words:
-    if word in stpwds_id:
-        stpwds_id.remove(word)
+# Define Stemming
+stemmer = StemmerFactory().create_stemmer()
+# Open slangwords_indonesian.txt
+with open('slangwords_indonesian.txt') as f:
+    data = f.read()
+slangwords_indonesian =  ast.literal_eval(data)
 
-# Initialize Lemmatizer
-lemmatizer = WordNetLemmatizer()
 
-# Function to replace slang terms
-def replace_slang_in_text(text, slang_dict):
-    words = text.split()
-    replaced_words = [slang_dict.get(word, word) for word in words]
-    return ' '.join(replaced_words)
-
-def text_preprocessing(text, slang_dict):
-    # Case folding (convert text to lowercase)
-    text = text.lower()
-
-    # Remove mentions, hashtags, and newlines
-    text = re.sub(r"@[\w]+|#[\w]+|\n", " ", text)
-
-    # Remove URLs
-    text = re.sub(r"http\S+|www.\S+", " ", text)
-
-    # Remove non-alphabetic characters and extra spaces
-    text = re.sub(r"[^\w\s']", " ", text)
-
-    # Replace informal phrases
-    for phrase, replacement in informal_phrases.items():
-        text = text.replace(phrase, replacement)
-
-    # Replace slang terms
-    text = replace_slang_in_text(text, slang_dict)
-
-    # Tokenization
-    tokens = word_tokenize(text)
-
-    # Remove stopwords
-    tokens = [word for word in tokens if word not in stpwds_id]
-
-    # Lemmatization (optional, but can improve performance)
-    tokens = [lemmatizer.lemmatize(word) for word in tokens]
-
-    # Stemming with exceptions
-    stemming_exceptions = {"terasa": "terasa", "sat": "cepat", "set": "cepat"}
-    tokens = [stemming_exceptions.get(word, word) for word in tokens]
-
-    # Reassemble the text and remove duplicates
-    text = ' '.join(dict.fromkeys(tokens))
-
+# Membuat suatu fungsi yang berisi full preprocessing step
+def text_preprocessing(text, slangwords_indonesian):
+    # Fungsi untuk mengubah teks menjadi huruf kecil
+    def lower(text):
+        return text.lower()
+    # Fungsi untuk mengganti abbreviation
+    def check_slang(text):
+        temp = []
+        for slang in text.split():
+            if slang in slangwords_indonesian:
+                temp.append(slangwords_indonesian[slang])
+            else:
+                temp.append(slang)
+        return " ".join(temp)
+    # Fungsi untuk menghapus tanda baca, newlines, dan whitespace ekstra
+    def check_punctuation(text):
+        # Non-letter removal (seperti emoticon, symbol (seperti μ, $, 兀), dan lain-lain
+        text = re.sub("[^a-zA-Z]", ' ', text)
+        # Hashtags removal
+        text = re.sub("#[A-Za-z0-9_]+", " ", text)
+        # Mention removal
+        text = re.sub("@[A-Za-z0-9_]+", " ", text)
+        # Menghapus teks yang ada di dalam tanda kurung siku ([...]) dalam document
+        text = re.sub('\[[^]]*\]', ' ', text)
+        # Mengganti setiap baris baru (newline) dengan spasi
+        text = re.sub(r"\\n", " ", text)
+        # Menghapus whitespace ekstra di awal dan akhir token
+        text = text.strip()
+        # Menghapus spasi berlebih di antara kata-kata (hanya menyisakan satu spasi antar kata)
+        text = ' '.join(text.split())
+        return text
+    # Fungsi untuk tokenisasi, menghapus stopwords, dan stemming
+    def token_stopwords_stem(text):
+        # Tokenization
+        tokens = word_tokenize(text)
+        # Stopwords removal
+        tokens = [word for word in tokens if word not in stpwds_id]
+        # Stemming
+        tokens = [stemmer.stem(word) for word in tokens]
+        # Combining Tokens
+        text = ' '.join(tokens)  # Menggunakan 'text' untuk menggabungkan kembali tokens
+        return text
+    # Proses Preprocessing
+    text = lower(text)
+    text = check_slang(text)
+    text = check_punctuation(text)
+    text = token_stopwords_stem(text)
     return text
 
+# Fungsi Untuk Scrape Review Tokopedia
+def scrape_reviews_and_ratings(product_urls):
+    reviews = []
+    ratings = []
+    options = webdriver.ChromeOptions()
+    user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    options.add_argument(f'user-agent={user_agent}')
+    options.add_argument("--headless")  # Run browser in headless mode
+    options.add_argument("--disable-gpu")  # Disable GPU (recommended for headless mode)
+    options.add_argument("--enable-automation")
+    options.add_argument("--useAutomationExtension")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-extensions")
+    options.add_argument("--dns-prefetch-disable")
+    options.add_argument("--disable-dev-shm-usage")  # Fix shared memory issues in some environments
+    options.add_argument("window-size=1920,1080")
+    driver = webdriver.Chrome(options=options)
+    try:
+        driver.get(product_urls)
+        sleep(3)
+        current_page = 1  # Initialize current page
+        while True:
+            # Scroll the page to load all reviews
+            for _ in range(20):
+                driver.execute_script("window.scrollBy(0, 250)")
+                sleep(1)
+            html = driver.page_source
+            soup = BeautifulSoup(html, "html.parser")
+            # Extract reviews and ratings
+            for product in soup.find_all('div', {"class": "css-1k41fl7"}):
+                review_element = product.find('span', {"data-testid": "lblItemUlasan"})
+                reviews.append(review_element.get_text() if review_element else 'None')
+
+                rating_element = product.find('div', {"class": "rating"})
+                ratings.append(rating_element.get('aria-label') if rating_element else 'None')
+            # Break if the maximum number of pages (e.g., 2) is reached
+            if current_page >= 3:
+                break
+            # Check if "Next" button exists and is enabled
+            try:
+                next_button_container = driver.find_element(By.CLASS_NAME, "css-1xqkwi8")
+                next_button = next_button_container.find_element(
+                    By.XPATH, './/button[contains(@class, "css-16uzo3v-unf-pagination-item") and @aria-label="Laman berikutnya"]'
+                )
+                is_disabled = next_button.get_attribute("disabled")  # Check if button is disabled
+                if is_disabled:
+                    break
+                # Scroll to and click the next button
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+                driver.execute_script("arguments[0].click();", next_button)
+                sleep(2)
+                current_page += 1  # Increment current page
+            except (NoSuchElementException, TimeoutException):
+                break
+    finally:
+        driver.quit()
+    print(f"Scraped {len(reviews)} reviews from {current_page} pages.")
+    data = pd.DataFrame({'Review': reviews, 'Rating': ratings})
+    return data
