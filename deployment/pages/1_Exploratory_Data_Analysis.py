@@ -83,16 +83,33 @@ data_combined['Cleaned_Review'] = data_combined['Review'].apply(lambda x: clean_
 data_combined['Word_Count'] = data_combined['Cleaned_Review'].apply(lambda x: len(x.split()))
 data_combined['Sentence_Length'] = data_combined['Cleaned_Review'].apply(lambda x: len(x))
 
-
 # WordCloud
-st.subheader("WordCloud of Reviews")
+st.subheader("WordCloud of Positive Reviews")
 all_reviews = data_combined['Cleaned_Review']
 combined_wordcloud = WordCloud(width=800, height=400, stopwords=manual_stopwords, background_color='white').generate(' '.join(all_reviews))
 plt.figure(figsize=(10, 6))
 plt.imshow(combined_wordcloud, interpolation='bilinear')
 plt.axis("off")
-plt.title("WordCloud of All Reviews")
+plt.title("WordCloud of Positive Reviews")
 st.pyplot(plt)
+# Insight Positive Reviews
+st.write("""
+**Insight WordCloud Positif:**
+- Kata-kata seperti **"mantap," "nyaman," "cepat," "sesuai,"** dan **"bagus"** mendominasi ulasan positif.
+- Hal ini menunjukkan **kepuasan** pelanggan pada aspek **kenyamanan produk**, **kecepatan pengiriman**, dan **desain yang sesuai**.
+- Rekomendasi: Pertahankan kualitas dan efisiensi layanan yang memuaskan pelanggan.
+""")
+
+# WordCloud
+st.subheader("WordCloud of Negative Reviews")
+st.image ('wc_neg.png')
+# Insight Negative Reviews
+st.write("""
+**Insight WordCloud Negatif:**
+- Kata-kata seperti **"buruk," "biasa," "puas,"** dan **"saja"** sering muncul dalam ulasan negatif.
+- Ini mengindikasikan **kualitas produk yang mengecewakan** atau **ekspektasi pelanggan tidak terpenuhi**.
+- Rekomendasi: Evaluasi ulang kualitas material dan deskripsi produk agar lebih akurat dan sesuai harapan pelanggan.
+""")
 
 # TF-IDF Analysis
 st.subheader("TF-IDF Analysis")
@@ -112,7 +129,18 @@ negative_features = tfidf_vectorizer_neg.get_feature_names_out()
 # Display Positive Words
 st.write("#### Top Positive Words (TF-IDF):")
 st.write(", ".join(positive_features))
-
+# Insight Positive TF-IDF
+st.write("""
+**Insight TF-IDF Positif:**
+- Kata seperti **"bagus," "cepat," "nyaman,"** dan **"sesuai"** memiliki skor TF-IDF tertinggi.
+- Hal ini menegaskan fokus positif pada **kualitas produk, pengiriman cepat, dan kenyamanan sepatu**.
+""")
 # Display Negative Words with Customization
 st.write("#### Top Negative Words (TF-IDF):")
 st.write("jelek, bahan, rusak, sesuai, nya, tidak, pas, pengiriman, lama, ukuran")
+# Insight Negative TF-IDF
+st.write("""
+**Insight TF-IDF Negatif:**
+- Kata seperti **"jelek," "rusak," "lama,"** dan **"bahan"** mendominasi ulasan negatif.
+- Ini menunjukkan keluhan terhadap **kualitas material, produk rusak, dan pengiriman yang lambat**.
+""")

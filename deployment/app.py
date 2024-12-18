@@ -10,7 +10,7 @@ st.set_page_config(
 # Center the logo using columns
 col1, col2, col3 = st.columns([2, 3, 1])
 with col2:
-    st.image("shoevibe.png")
+    st.image("shoevibe.PNG")
 
 # Main header and subheader, centered
 st.markdown("<h1 style='text-align: center;'>Welcome to the Shoevibe App</h1>", unsafe_allow_html=True)
