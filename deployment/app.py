@@ -1,23 +1,41 @@
 import streamlit as st
 
-# Set page configuration
+# Set the page configuration
 st.set_page_config(
-    page_title="Shoevibe App",
-    page_icon="🚀",
-    layout="wide",
+    page_title="Shoevibe - Home",  # Title displayed on the browser tab
+    page_icon="👟",               # Optional: Set a shoe icon for branding
+    layout="centered",            # Options: 'centered' or 'wide'
+    initial_sidebar_state="auto", # Sidebar state
 )
 
-# Center the logo using columns
-col1, col2, col3 = st.columns([2, 3, 1])
+# Add a centered logo using columns
+col1, col2, col3 = st.columns([1, 2, 1])  # Adjust column widths
 with col2:
-    st.image("shoevibe.PNG")
+    st.image("shoevibe.png", use_container_width=True)  # Auto-fit the logo within the column
 
-# Main header and subheader, centered
-st.markdown("<h1 style='text-align: center;'>Welcome to the Shoevibe App</h1>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align: center;'>ShoeVibe is an NLP-based application that analyzes customer sentiment for men's shoes on Tokopedia by extracting key terms from positive and negative reviews. It highlights frequent words to help buyers and sellers identify product strengths and weaknesses, enabling informed decision-making.</h4>", unsafe_allow_html=True)
+# Add a centered main header and subheader
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <h1>Welcome to the Shoevibe App</h1>
+        <h4>Shoevibe is an NLP-based application that analyzes customer sentiment for men's shoes on Tokopedia.</h4>
+        <h4>It extracts key terms from positive and negative reviews to highlight frequent words, helping buyers and sellers make informed decisions.</h4>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
-# Initialize session state for page navigation
+# Initialize session state for navigation (if needed)
 if 'page' not in st.session_state:
     st.session_state.page = 'Home'
 
-
+# Display a footer for branding or additional info
+st.markdown(
+    """
+    <hr style='border: 1px solid #ddd;'>
+    <footer style='text-align: center; font-size: 12px; color: gray;'>
+        © 2024 Shoevibe. All rights reserved.
+    </footer>
+    """,
+    unsafe_allow_html=True,
+)

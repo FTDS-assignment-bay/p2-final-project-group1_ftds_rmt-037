@@ -1,5 +1,6 @@
 import re
 import os
+os.system('bash setup.sh')
 import ast
 import json
 import warnings
@@ -13,12 +14,17 @@ import joblib
 import tensorflow as tf
 import tensorflow_hub as tf_hub
 from wordcloud import STOPWORDS, WordCloud
-
 import nltk
+from nltk.corpus import stopwords
+try:
+    stpwds_id = list(set(stopwords.words('indonesian')))
+except LookupError:
+    nltk.download('stopwords')
+    stpwds_id = list(set(stopwords.words('indonesian')))
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer, PorterStemmer
 from nltk.corpus import stopwords
-
+nltk.download('punkt_tab')
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 
 from sklearn.model_selection import train_test_split
@@ -36,6 +42,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Define Stopwords
 stpwds_id = list(set(stopwords.words('indonesian')))

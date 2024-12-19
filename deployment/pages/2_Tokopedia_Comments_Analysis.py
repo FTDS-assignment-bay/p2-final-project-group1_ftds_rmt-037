@@ -7,10 +7,25 @@ import ast
 # Pre-processing & Feature Engineering
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from sklearn.feature_extraction.text import CountVectorizer
-from nltk.corpus import stopwords
 import keras
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+try:
+    from nltk.corpus import stopwords
+    stpwds_id = list(set(stopwords.words('indonesian')))
+except LookupError:
+    nltk.download('stopwords')
+    from nltk.corpus import stopwords
+    stpwds_id = list(set(stopwords.words('indonesian')))
+nltk.download('punkt_tab')
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from transformers import AutoTokenizer, TFAutoModelForSequenceClassification
 
 st.title("Tokopedia Comments Analysis 💬")
 # ---- Custom CSS Styling ----
@@ -75,7 +90,7 @@ with open('slangwords_indonesian.txt') as f:
     slangwords_indonesian = ast.literal_eval(f.read())
 
 # Load Model
-model = keras.layers.TFSMLayer('nlp_model', call_endpoint='serving_default')
+model = tf.keras.models.load_model('nlp_model')
 
 if st.button('Submit'):
     with st.spinner("Analyzing... Please wait!"):
@@ -83,8 +98,7 @@ if st.button('Submit'):
         the_data = scrape_reviews_and_ratings(user_input)
         the_data['Review_processed'] = the_data['Review'].apply(lambda x: text_preprocessing(x, slangwords_indonesian))
         y_pred_inf = model(the_data['Review_processed'])
-        dense_tensor = y_pred_inf['dense']
-        y_pred_inf = np.argmax(dense_tensor.numpy(), axis=1)
+        y_pred_inf = np.argmax(y_pred_inf.numpy(), axis=1)
 
         # Combine Results
         inffinal = pd.DataFrame({
@@ -101,17 +115,20 @@ if st.button('Submit'):
         
         # ---- Results Cards ----
         col1, col2 = st.columns(2)
+        
+        # Positive Sentiment Card
         col1.markdown(f"""
-        <div class='sentiment-card'>
-            <h3 class='sentiment-positive'>Positive</h3>
+        <div class='sentiment-card' style="text-align: center; padding: 20px; border: 1px solid #d4d4d4; border-radius: 10px; background-color: #f9f9f9;">
+            <h3 style="color: #28a745; font-size: 24px; font-weight: bold;">Positive</h3>
             <p style="color: black; font-size: 20px; font-weight: bold;">{pos_count}</p>
-            <p>{pos_count}</p>
         </div>
         """, unsafe_allow_html=True)
+        
+        # Negative Sentiment Card
         col2.markdown(f"""
-        <div class='sentiment-card'>
-            <h3 class='sentiment-negative'>Negatives</h3>
-            <p style="color: #8B0000; font-size: 20px; font-weight: bold;">{neg_count}</p>
+        <div class='sentiment-card' style="text-align: center; padding: 20px; border: 1px solid #d4d4d4; border-radius: 10px; background-color: #f9f9f9;">
+            <h3 style="color: black; font-size: 24px; font-weight: bold;">Negatives</h3>
+            <p style="color: #dc3545; font-size: 20px; font-weight: bold;">{neg_count}</p>
         </div>
         """, unsafe_allow_html=True)
 

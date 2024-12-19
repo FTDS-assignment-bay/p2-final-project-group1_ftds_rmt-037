@@ -102,7 +102,7 @@ st.write("""
 
 # WordCloud
 st.subheader("WordCloud of Negative Reviews")
-st.image ('wc_neg.png')
+st.image ('wc_neg.PNG')
 # Insight Negative Reviews
 st.write("""
 **Insight WordCloud Negatif:**
