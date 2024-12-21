@@ -10,8 +10,6 @@
   <img src="logo-app.png" width=400 align="center">
 </p>
 <h1 align="center">Hallo Guys👋, We are RMT Batch-037 FTDS</h1>
-<h3 align="center">ShoeVibe </h3>
-
 By Achmed Alridho Zulkarnaen, Michael Wilbert, Catherine Kezia, and Andrew Ananta
 
 <h2 align="left">Scraping Dataset</h2>
