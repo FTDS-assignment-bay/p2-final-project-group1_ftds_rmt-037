@@ -103,7 +103,6 @@ You can explor this page by clicking the "Exploratory Data Analysis" option on t
 3. [Michael Wilbert Puradisastra, Github (Link)](https://github.com/micwilbert)
 4. [Andrew Ananta Aryatama, Github (Link](https://github.com/DruCh4n)
 
-<p align="center">
-  <img src="image-7.png" width=700 align="center">
-</p>
-</p> --> --> -->
+<h3 align="center">
+    <img src="https://readme-typing-svg.herokuapp.com/?font=Lobster&color=FFA500&size=50&center=true&vCenter=true&width=1000&height=70&duration=5000&lines=Thank+you+for+visiting+our+project!;+we+hope+you+can+use+it+well;+ShoeVibe+Out!;" />
+</h3>
