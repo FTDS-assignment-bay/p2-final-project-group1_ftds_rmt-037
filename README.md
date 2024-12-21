@@ -3,7 +3,7 @@
 **Menilai Ulasan, Memahami Perasaan!**
 
 <p align="center">
-  <img src="Image\logo-app.png" width=400 align="center">
+  <img src="logo-app.png" width=400 align="center">
 </p>
 <h1 align="center">Hallo Guys👋, We are RMT Batch-037 FTDS</h1>
 By Achmed Alridho Zulkarnaen, Michael Wilbert, Catherine Kezia, and Andrew Ananta
@@ -37,7 +37,7 @@ The main objective of this project is to develop an application that can automat
 
 <h2 align="left">Process & Method</h2>
 
-![alt text](C:\Users\Alridho\hactive_milestone\p2-final-project-group1_ftds_rmt-037\Image\image.png)
+![alt text](method.png)
 
 To develop this application, we followed these steps. The process began with data scraping from Tokopedia using Selenium and Beautiful Soup. Next, we analyzed the data using Python and created visualizations with Tableau. Following the analysis, we built a deep learning model utilizing NLP and the B-LSTM method. Finally, we deployed the application using Streamlit and Hugging Face.
 
