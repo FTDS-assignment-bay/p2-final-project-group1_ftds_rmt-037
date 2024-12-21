@@ -67,60 +67,36 @@ on the menu (Left top of the screen).
 
 4. View Results:
 
-   * The analysis results will display the most frequently mentioned words in positive and negative reviews.
+   - The analysis results will display the most frequently mentioned words in positive and negative reviews.
 
-   * You will also see the total number of positive and negative reviews for the product.
+   - You will also see the total number of positive and negative reviews for the product.
+   </p>
+
+<p align="center">
+  <img src="image-4.png" width=700 align="center">
+
+5. Use Insights:
+
+   - Buyers can understand the strengths and weaknesses of the product based on customer feedback.
+
+   - Sellers can evaluate customer feedback to improve the quality of their products or services.
+   </p>
+
+6. Repeat the Process: You can analyze reviews for other products by entering a new link.
+
+<h2 align="left">EDA Page Views</h2>
+
+<p align="center">
+  <img src="image-5.png" width=700 align="center">
 </p>
 
 <p align="center">
-  Tampilan dari laman beranda
+  <img src="image-6.png" width=700 align="center">
 </p>
 
-<p align="center">
-  <img src="Tampilan-Depan.jpg" width=700 align="center">
+You can explor this page by clicking the "Exploratory Data Analysis" option on the menu in the application, happy exploring!
 
-</p>
-
-<p align="center">
-  Tampilan dari laman beranda
-</p>
-
----
-
-Untuk menggunakan aplikasi cukup mudah, terdapat 3 navigation page yaotu 'Home', 'Profile Risk' dan 'Rekomendasi Aset Kripto’ Pada page Home , user dapat mengetahui harga token/coin crypto, hingga saat ini kami masih menggunakan API Binance, jadi bukan hanya token metaverse namun juga terdapat beberapa koin lainnya seperti BTC,ETH,dll
-Kemudian pada Page Profile Risk user akan diarahkan untuk mengisi profile risk user, dimana terdapat beberapa pertanyaan yang harus diisi oleh user.
-Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user, apakah tergolong dalam kategori rendah,med,tinggi, setelah mengetahui risk profile user tersebut, kita dapat mengetahui koin/token apa saja yang cocok/sesuai dengan risk profile user tersebut. Sehingga user akan lebih nyaman dalam bertransaksi dan kemudian akan mengetahui bagaimana profile risk user tersebut, dan terakhir adalah page Rekomendasi Aset Kripto, dimana user akan diberikan beberapa token yang sesuai dengan profile risk user tersebut.
-
-<p align="center">
-  <img src="Profile-Risk.jpg" width=700 align="center">
-
-</p>
-
-<p align="center">
-  Tampilan dari laman Profile Risk
-</p>
-
-<p align="center">
-  <img src="Profile-Risk2.jpg" width=700 align="center">
-
-</p>
-
-<p align="center">
-  Tampilan dari laman Profile Risk
-</p>
-
----
-
-<p align="center">
-  <img src="Rekomendasi-Aset.jpg" width=700 align="center">
-
-</p>
-
-<p align="center">
-  Tampilan dari laman skema Rekomendasi Aset
-</p>
-
-## Contributor
+<!-- ## Contributor
 
 1. [Rahmad Gunawan, Github (Link)](https://github.com/rahmad07g)
 2. [Suhardiman, Github (Link](https://github.com/sumankwan)
@@ -133,4 +109,4 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
 <p align="center">
   <img src="Thanks.jpg" width=700 align="center">
 
-</p> --> --> -->
+</p> --> --> --> -->
