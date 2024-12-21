@@ -35,6 +35,8 @@ Our team of four has been assigned the responsibility of developing an applicati
 
 The main objective of this project is to develop an application that can automatically perform sentiment analysis on product reviews for men's shoes on Tokopedia. By utilizing Natural Language Processing (NLP) techniques and transfer learning using the NNLP model, this application aims to analyze and classify sentiments in product reviews, both positive and negative. Additionally, this project seeks to provide clearer insights into the words or themes that frequently appear in positive and negative reviews for each shoe product. This will help buyers better understand the strengths and weaknesses of products, and provide sellers with valuable feedback that can be used to improve product quality and services. The project also aims to optimize the data analysis process, reducing the time and effort required to manually assess consumer perceptions. In the future, the developed model is expected to be applied to other products on Tokopedia, with flexibility to analyze other product categories. Overall, this project aims to enhance the understanding of customer sentiment and provide data-driven insights to improve the shopping experience on Tokopedia.
 
+![alt text](image.png)
+
 <!--
 ## Demo Aplikasi
 
