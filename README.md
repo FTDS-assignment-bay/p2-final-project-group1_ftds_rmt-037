@@ -7,7 +7,7 @@
 **Menilai Ulasan, Memahami Perasaan!**
 
 <p align="center">
-  <img src="logo-app.png" width=800 align="center">
+  <img src="logo-app.png" width=400 align="center">
 </p>
 <h1 align="center">Hallo Guys👋, We are RMT Batch-037 FTDS</h1>
 <h3 align="center">ShoeVibe </h3>
