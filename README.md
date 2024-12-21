@@ -110,6 +110,7 @@ You can explor this page by clicking the "Exploratory Data Analysis" option on t
 ## Presentation Slide
 
 [<img src="https://images.fonearena.com/blog/wp-content/uploads/2018/10/Google-Slides-e1539062763406.jpg" alt="Google Slides" width="70" height="70">](https://docs.google.com/presentation/d/1yqnWS0_rFodCCpznPpe371GJPvokvVoJ/edit#slide=id.p1)
+Here is the slide deck we used for our project presentation!
 
 <h3 align="center">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Lobster&color=FFA500&size=50&center=true&vCenter=true&width=1000&height=70&duration=5000&lines=Thank+you+for+visiting+our+project!;+we+hope+you+can+use+it+well;+ShoeVibe+Out!;" />
