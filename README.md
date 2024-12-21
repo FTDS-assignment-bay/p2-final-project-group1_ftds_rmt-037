@@ -108,8 +108,11 @@ You can explor this page by clicking the "Exploratory Data Analysis" option on t
 4. [Andrew Ananta Aryatama, Github (Link](https://github.com/DruCh4n)
 
 ## Presentation Slide
-
-[<img src="https://images.fonearena.com/blog/wp-content/uploads/2018/10/Google-Slides-e1539062763406.jpg" alt="Google Slides" width="70" height="70">](https://docs.google.com/presentation/d/1yqnWS0_rFodCCpznPpe371GJPvokvVoJ/edit#slide=id.p1)
+<p align="center">
+  <a href="https://docs.google.com/presentation/d/1yqnWS0_rFodCCpznPpe371GJPvokvVoJ/edit#slide=id.p1">
+    <img src="https://images.fonearena.com/blog/wp-content/uploads/2018/10/Google-Slides-e1539062763406.jpg" alt="Google Slides" width="70" height="70">
+  </a>
+</p>
 
 Here is the slide deck we used for our project presentation!
 
