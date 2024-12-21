@@ -46,7 +46,7 @@ To develop this application, we followed these steps. The process began with dat
 <p align="center">
   <img src="image.png" width=700 align="center">
 
-Open the Application: Access the app through the deployment link on Hugging Face.
+1. Open the Application: Access the app through the deployment link on Hugging Face.
 </p>
 
 <!-- 
