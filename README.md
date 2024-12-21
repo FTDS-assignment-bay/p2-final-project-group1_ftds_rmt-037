@@ -8,7 +8,7 @@
 <h1 align="center">Hallo Guys👋, We are RMT Batch-037 FTDS</h1>
 By Achmed Alridho Zulkarnaen, Michael Wilbert, Catherine Kezia, and Andrew Ananta
 
-<h2 align="left">Scraping Dataset</h2>
+<h2 align="left">The Dataset</h2>
 <br/>
 <div align="left">
     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" alt="Selenium Logo" width="50"/>
