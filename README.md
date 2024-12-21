@@ -1,5 +1,5 @@
 ## Deployment Link
-[![Huggingface](https://huggingface.co/front/assets/huggingface_logo.svg)](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
+[<img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Huggingface" width="100" height="40">](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
 
 # ShoeVibe!
 **Menilai Ulasan, Memahami Perasaan!**
