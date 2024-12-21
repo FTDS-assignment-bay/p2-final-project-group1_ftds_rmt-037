@@ -107,6 +107,10 @@ You can explor this page by clicking the "Exploratory Data Analysis" option on t
 3. [Michael Wilbert Puradisastra, Github (Link)](https://github.com/micwilbert)
 4. [Andrew Ananta Aryatama, Github (Link](https://github.com/DruCh4n)
 
+## Presentation Slide
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Slides_logo.svg/1024px-Google_Slides_logo.svg.png" alt="Google Slides" width="40" height="40">](https://docs.google.com/presentation/d/1yqnWS0_rFodCCpznPpe371GJPvokvVoJ/edit#slide=id.p1)
+
 <h3 align="center">
     <img src="https://readme-typing-svg.herokuapp.com/?font=Lobster&color=FFA500&size=50&center=true&vCenter=true&width=1000&height=70&duration=5000&lines=Thank+you+for+visiting+our+project!;+we+hope+you+can+use+it+well;+ShoeVibe+Out!;" />
 </h3>
