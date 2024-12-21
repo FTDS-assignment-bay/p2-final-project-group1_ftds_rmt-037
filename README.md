@@ -19,9 +19,7 @@ For the dataset we scrape Tokopedia data using Selenium and Beautiful Soup.
 
 ## Deployment Link
 
-<div align="center">
 [<img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Huggingface" width="40" height="40">](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
-</div>
 
 We deploy the application using Huggingface, feel free to click the Huggingface logo above to use the application!
 
