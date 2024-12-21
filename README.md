@@ -35,8 +35,9 @@ Our team of four has been assigned the responsibility of developing an applicati
 
 The main objective of this project is to develop an application that can automatically perform sentiment analysis on product reviews for men's shoes on Tokopedia. By utilizing Natural Language Processing (NLP) techniques and transfer learning using the NNLP model, this application aims to analyze and classify sentiments in product reviews, both positive and negative. Additionally, this project seeks to provide clearer insights into the words or themes that frequently appear in positive and negative reviews for each shoe product. This will help buyers better understand the strengths and weaknesses of products, and provide sellers with valuable feedback that can be used to improve product quality and services. The project also aims to optimize the data analysis process, reducing the time and effort required to manually assess consumer perceptions. In the future, the developed model is expected to be applied to other products on Tokopedia, with flexibility to analyze other product categories. Overall, this project aims to enhance the understanding of customer sentiment and provide data-driven insights to improve the shopping experience on Tokopedia.
 
+<h2 align="left">Process & Method</h2>
 ![alt text](image.png)
-
+To develop this application, we followed these steps. The process began with data scraping from Tokopedia using Selenium and Beautiful Soup. Next, we analyzed the data using Python and created visualizations with Tableau. Following the analysis, we built a deep learning model utilizing NLP and the B-LSTM method. Finally, we deployed the application using Streamlit and Hugging Face.
 <!--
 ## Demo Aplikasi
 
@@ -59,6 +60,7 @@ The main objective of this project is to develop an application that can automat
 </p>
 
 ---
+
 Untuk menggunakan aplikasi cukup mudah, terdapat 3 navigation page yaotu 'Home', 'Profile Risk' dan 'Rekomendasi Aset Kripto’ Pada page Home , user dapat mengetahui harga token/coin crypto, hingga saat ini kami masih menggunakan API Binance, jadi bukan hanya token metaverse namun juga terdapat beberapa koin lainnya seperti BTC,ETH,dll
 Kemudian pada Page Profile Risk user akan diarahkan untuk mengisi profile risk user, dimana terdapat beberapa pertanyaan yang harus diisi oleh user.
 Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user, apakah tergolong dalam kategori rendah,med,tinggi, setelah mengetahui risk profile user tersebut, kita dapat mengetahui koin/token apa saja yang cocok/sesuai dengan risk profile user tersebut. Sehingga user akan lebih nyaman dalam bertransaksi dan kemudian akan mengetahui bagaimana profile risk user tersebut, dan terakhir adalah page Rekomendasi Aset Kripto, dimana user akan diberikan beberapa token yang sesuai dengan profile risk user tersebut.
@@ -82,6 +84,7 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
 </p>
 
 ---
+
 <p align="center">
   <img src="Rekomendasi-Aset.jpg" width=700 align="center">
 
@@ -91,8 +94,8 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
   Tampilan dari laman skema Rekomendasi Aset
 </p>
 
-
 ## Contributor
+
 1. [Rahmad Gunawan, Github (Link)](https://github.com/rahmad07g)
 2. [Suhardiman, Github (Link](https://github.com/sumankwan)
 
