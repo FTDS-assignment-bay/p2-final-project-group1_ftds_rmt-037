@@ -37,7 +37,7 @@ The main objective of this project is to develop an application that can automat
 
 <h2 align="left">Process & Method</h2>
 
-![alt text](image.png)
+![alt text](Image\image.png)
 
 To develop this application, we followed these steps. The process began with data scraping from Tokopedia using Selenium and Beautiful Soup. Next, we analyzed the data using Python and created visualizations with Tableau. Following the analysis, we built a deep learning model utilizing NLP and the B-LSTM method. Finally, we deployed the application using Streamlit and Hugging Face.
 
