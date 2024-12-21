@@ -3,7 +3,7 @@
 **Menilai Ulasan, Memahami Perasaan!**
 
 <p align="center">
-  <img src="logo-app.png" width=400 align="center">
+  <img src="Image\logo-app.png" width=400 align="center">
 </p>
 <h1 align="center">Hallo Guys👋, We are RMT Batch-037 FTDS</h1>
 By Achmed Alridho Zulkarnaen, Michael Wilbert, Catherine Kezia, and Andrew Ananta
