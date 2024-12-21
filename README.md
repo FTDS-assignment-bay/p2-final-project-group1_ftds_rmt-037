@@ -47,7 +47,7 @@ To develop this application, we followed these steps. The process began with dat
   <img src="image.png" width=700 align="center">
 
 1. Open the Application: Access the app through the deployment link on Hugging Face. Then you can choose the "Tokopedia Comments Analysis"
-   on the menu (Left top of the screen).
+on the menu (Left top of the screen).
 </p>
 
 <p align="center">
@@ -55,7 +55,22 @@ To develop this application, we followed these steps. The process began with dat
 
 2. Enter Product Link: Copy the product link for men’s shoes from Tokopedia (red circle in picture above) and paste it into the input field provided.
 </p>
-<!--
+
+<p align="center">
+  <img src="image-2.png" width=700 align="center">
+
+3. Analyze Data: Click the "Analyze" button (red circle) to start the sentiment analysis process.
+</p>
+
+<p align="center">
+  <img src="image-3.png" width=700 align="center">
+
+4. View Results:
+
+   * The analysis results will display the most frequently mentioned words in positive and negative reviews.
+
+   * You will also see the total number of positive and negative reviews for the product.
+</p>
 
 <p align="center">
   Tampilan dari laman beranda
