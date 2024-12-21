@@ -18,7 +18,7 @@ By Achmed Alridho Zulkarnaen, Michael Wilbert, Catherine Kezia, and Andrew Anant
 <br/>
 <div align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" alt="Selenium Logo" width="50"/>
-    <img src="https://scrapingant.com/blog/img/blog/beautifulsoup-logo.png" alt="Beautiful Soup Logo" width="50"/>
+    <img src="https://apmonitor.com/dde/uploads/Main/python_beautifulsoup.png" alt="Beautiful Soup Logo" width="50"/>
 </div>
 
 For the dataset we scrape Tokopedia data using Selenium and Beautiful Soup.
