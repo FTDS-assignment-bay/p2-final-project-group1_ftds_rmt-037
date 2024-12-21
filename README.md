@@ -96,17 +96,14 @@ on the menu (Left top of the screen).
 
 You can explor this page by clicking the "Exploratory Data Analysis" option on the menu in the application, happy exploring!
 
-<!-- ## Contributor
+## Contributor
 
-1. [Rahmad Gunawan, Github (Link)](https://github.com/rahmad07g)
-2. [Suhardiman, Github (Link](https://github.com/sumankwan)
+1. [Achmed Alridho Zulkarnaen, Github (Link)](https://github.com/alridho32)
+2. [Catherine Kezia Wijaya, Github (Link](https://github.com/catkezzz)
+3. [Michael Wilbert Puradisastra, Github (Link)](https://github.com/micwilbert)
+4. [Andrew Ananta Aryatama, Github (Link](https://github.com/DruCh4n)
 
 <p align="center">
-  <img src="Created.jpg" width=700 align="center">
-
+  <img src="image-7.png" width=700 align="center">
 </p>
-
-<p align="center">
-  <img src="Thanks.jpg" width=700 align="center">
-
-</p> --> --> --> -->
+</p> --> --> -->
