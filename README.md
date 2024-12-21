@@ -49,7 +49,12 @@ To develop this application, we followed these steps. The process began with dat
 1. Open the Application: Access the app through the deployment link on Hugging Face.
 </p>
 
-<!-- 
+<p align="center">
+  <img src="image-1.png" width=700 align="center">
+
+2. Enter Product Link: Copy the product link for men’s shoes from Tokopedia (red circle in picture above) and paste it into the input field provided.
+</p>
+<!--
 
 <p align="center">
   Tampilan dari laman beranda
