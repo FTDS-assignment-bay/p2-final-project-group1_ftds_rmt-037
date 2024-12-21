@@ -20,6 +20,8 @@ For the dataset we scrape Tokopedia data using Selenium and Beautiful Soup.
 ## Deployment Link
 [<img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Huggingface" width="40" height="40">](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
 
+We deploy the application using Huggingface, feel free to click the Huggingface logo above to use the application!
+
 <h2 align="left">App Description</h2>
 ShoeVibe is an application designed to analyze customer sentiment for men's shoes on Tokopedia. Using Natural Language Processing (NLP), the app identifies and extracts the most frequent words from both positive and negative reviews for each product. By highlighting these key terms, ShoeVibe helps both buyers and sellers gain insights into the strengths and weaknesses of the product. While the application does not provide direct recommendations for product improvements, it enables users to interpret the feedback themselves and make informed decisions based on the analysis of the most common words in reviews.
 
