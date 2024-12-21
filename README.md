@@ -1,7 +1,9 @@
 ## Deployment Link
-[<img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Huggingface" width="100" height="40">](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
+
+[<img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Huggingface" width="40" height="40">](https://huggingface.co/spaces/micwilbert/ShoeVibe_App)
 
 # ShoeVibe!
+
 **Menilai Ulasan, Memahami Perasaan!**
 
 <p align="center">
@@ -30,7 +32,7 @@ There are a high degree of frauds occurring in the metaverse. We help you select
 
 <p align="center">
   <img src="Tampilan-Awal.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
@@ -39,7 +41,7 @@ There are a high degree of frauds occurring in the metaverse. We help you select
 
 <p align="center">
   <img src="Tampilan-Depan.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
@@ -47,13 +49,13 @@ There are a high degree of frauds occurring in the metaverse. We help you select
 </p>
 
 ---
-Untuk menggunakan aplikasi cukup mudah, terdapat 3 navigation page yaotu 'Home', 'Profile Risk' dan 'Rekomendasi Aset Kripto’ Pada page Home , user dapat mengetahui harga token/coin crypto, hingga saat ini kami masih menggunakan API Binance, jadi bukan hanya token metaverse namun juga terdapat beberapa koin lainnya seperti BTC,ETH,dll 
+Untuk menggunakan aplikasi cukup mudah, terdapat 3 navigation page yaotu 'Home', 'Profile Risk' dan 'Rekomendasi Aset Kripto’ Pada page Home , user dapat mengetahui harga token/coin crypto, hingga saat ini kami masih menggunakan API Binance, jadi bukan hanya token metaverse namun juga terdapat beberapa koin lainnya seperti BTC,ETH,dll
 Kemudian pada Page Profile Risk user akan diarahkan untuk mengisi profile risk user, dimana terdapat beberapa pertanyaan yang harus diisi oleh user.
 Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user, apakah tergolong dalam kategori rendah,med,tinggi, setelah mengetahui risk profile user tersebut, kita dapat mengetahui koin/token apa saja yang cocok/sesuai dengan risk profile user tersebut. Sehingga user akan lebih nyaman dalam bertransaksi dan kemudian akan mengetahui bagaimana profile risk user tersebut, dan terakhir adalah page Rekomendasi Aset Kripto, dimana user akan diberikan beberapa token yang sesuai dengan profile risk user tersebut.
 
 <p align="center">
   <img src="Profile-Risk.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
@@ -62,7 +64,7 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
 
 <p align="center">
   <img src="Profile-Risk2.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
@@ -72,7 +74,7 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
 ---
 <p align="center">
   <img src="Rekomendasi-Aset.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
@@ -86,10 +88,10 @@ Tujuan dari mengisi profile risk adalah untuk mengidentifikasi risk profile user
 
 <p align="center">
   <img src="Created.jpg" width=700 align="center">
-  
+
 </p>
 
 <p align="center">
   <img src="Thanks.jpg" width=700 align="center">
-  
+
 </p> -->
